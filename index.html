@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flower Classifier</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Flower Classification</h1>
+    <p class="description">
+      Upload a photo of a flower or type its name below. Our app will classify the flower and provide a description.
+    </p>
+
+    <label for="imageInput" class="upload-box">
+      Click here or drag an image to upload
+      <input type="file" id="imageInput" accept="image/*" hidden />
+    </label>
+
+    <p class="or-text">OR</p>
+
+    <input
+      type="text"
+      id="flowerName"
+      placeholder="Type flower name here"
+      autocomplete="off"
+    />
+
+    <button onclick="submitFlower()">Submit</button>
+
+    <div id="resultSection" class="result-section">
+      <img id="flowerImage" src="" alt="" hidden />
+      <p id="flowerDescription"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
