@@ -109,3 +109,40 @@ body {
     color: #333;
   }
   
+/* Loading text styles */
+#loadingText {
+    font-size: 1.1rem;
+    color: #0070f3;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px solid #0070f3;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0 0 0;
+    user-select: none;
+    position: relative;
+  }
+  
+  /* Animate the scrolling text */
+  #loadingText::before {
+    content: "Loading...";
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scrollLoading 2.5s linear infinite;
+    color: #0070f3;
+  }
+  
+  /* Keyframes for scrolling left to right */
+  @keyframes scrollLoading {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
