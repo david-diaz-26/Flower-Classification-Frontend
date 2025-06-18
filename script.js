@@ -31,7 +31,16 @@ async function submitFlower() {
         const data = await response.json();
         flowerImage.src = URL.createObjectURL(file);
         flowerImage.hidden = false;
-        flowerDescription.innerText = data.description;
+        let rawDescription = data.description || "No description available.";
+
+        let formattedDescription = rawDescription
+        .replace(/Name:/i, '🌸 <strong>Name:</strong>')
+        .replace(/History:/i, '📜 <strong>History:</strong>')
+        .replace(/Important facts:/i, '💡 <strong>Important facts:</strong>')
+        .replace(/- /g, '👉 ')
+        .replace(/\n/g, '<br>');
+
+        flowerDescription.innerHTML = formattedDescription;
   
       } catch (error) {
         console.error(error);
@@ -70,7 +79,7 @@ async function submitFlower() {
       }
   
     } else {
-      loadingText.hidden = true;  // Just in case
+      loadingText.hidden = true;
       alert("Please upload an image or type a flower name.");
     }
   }
