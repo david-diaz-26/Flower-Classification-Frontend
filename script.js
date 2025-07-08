@@ -19,7 +19,7 @@ async function submitFlower() {
       formData.append("file", file);
   
       try {
-        const response = await fetch("https://5654-2601-644-400-7a60-8d45-c902-fbce-eccf.ngrok-free.app/flower-info/by-image", {
+        const response = await fetch("https://1dd4-2601-644-400-7a60-74f4-1b99-4211-e78a.ngrok-free.app/flower-info/by-image", {
           method: "POST",
           body: formData,
         });
@@ -55,7 +55,7 @@ async function submitFlower() {
       const flowerName = flowerNameInput.value.trim();
   
       try {
-        const response = await fetch("https://5654-2601-644-400-7a60-8d45-c902-fbce-eccf.ngrok-free.app/flower-info/by-name", {
+        const response = await fetch("https://1dd4-2601-644-400-7a60-74f4-1b99-4211-e78a.ngrok-free.app/flower-info/by-name", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
