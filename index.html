@@ -2,39 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flower Classifier</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Flower Classification</h1>
+    <h1>🌺 Flower Classifier</h1>
     <p class="description">
-      Upload a photo of a flower or type its name below. Our app will classify the flower and provide a description.
+      Upload a beautiful flower photo or type its name below. Our AI will identify and describe your flower with detailed information!
     </p>
 
     <label for="imageInput" class="upload-box">
-      Click here or drag an image to upload
+      <div class="upload-text">Click here or drag an image to upload</div>
       <input type="file" id="imageInput" accept="image/*" hidden />
     </label>
 
-    <p class="or-text">OR</p>
+    <div class="or-text">OR</div>
 
-    <input
-      type="text"
-      id="flowerName"
-      placeholder="Type flower name here"
-      autocomplete="off"
-    />
+    <div class="select-image-section">
+      <div class="select-image-title">Or select a sample image:</div>
+      <div class="select-image-options">
+        <img src="rose.jpg" alt="Sample Flower 1" class="sample-image" onclick="selectSampleImage('rose.jpg')">
+        <img src="sunflower.jpeg" alt="Sample Flower 2" class="sample-image" onclick="selectSampleImage('sunflower.jpeg')">
+        <img src="tulip.jpg" alt="Sample Flower 3" class="sample-image" onclick="selectSampleImage('tulip.jpg')">
+      </div>
+    </div>
 
-    <button onclick="submitFlower()">Submit</button>
+    <div class="model-select-section">
+      <label for="modelSelect" class="model-select-label">Choose a model:</label>
+      <select id="modelSelect" class="model-select">
+        <option value="baseline" selected>Baseline CNN</option>
+        <option value="model2">Model 2</option>
+        <option value="model3">Model 3</option>
+      </select>
+    </div>
+
+    <button onclick="submitFlower()">🔍 Analyze Flower</button>
 
     <div id="resultSection" class="result-section">
       <img id="flowerImage" src="" alt="" hidden />
       <p id="flowerDescription"></p>
-      <!-- <p id="loadingText" hidden>Loading...</p> -->
+      <div id="loadingText" hidden>
+        Analyzing your flower
+        <div class="loading-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
