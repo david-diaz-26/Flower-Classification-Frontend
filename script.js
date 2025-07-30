@@ -75,6 +75,10 @@ async function submitFlower() {
       console.log("FormData entry:", pair[0], pair[1]);
     }
 
+    // ✅ Add selected model
+    const model = document.getElementById("modelSelect").value;
+    formData.append("model", model);
+
     try {
       console.log("Sending fetch request...");
       const response = await fetch("https://4e07dd0e9d1f.ngrok-free.app/flower-info/by-image", {
