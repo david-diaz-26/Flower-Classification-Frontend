@@ -81,7 +81,7 @@ async function submitFlower() {
 
     try {
       console.log("Sending fetch request...");
-      const response = await fetch("https://4e07dd0e9d1f.ngrok-free.app/flower-info/by-image", {
+      const response = await fetch("https://56587b9573f1.ngrok-free.app/flower-info/by-image", {
         method: "POST",
         body: formData,
       });
