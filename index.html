@@ -33,15 +33,16 @@
     <div class="model-select-section">
       <label for="modelSelect" class="model-select-label">Choose a model:</label>
       <select id="modelSelect" class="model-select">
-        <option value="baseline" selected>Baseline CNN</option>
+        <option value="CNN" selected>Baseline CNN</option>
         <option value="Efficient Net B0">Efficient Net B0</option>
-        <option value="model3">Model 3</option>
+        <option value="ResNet-50">ResNet-50</option>
+        <option value="DenseNet121">DenseNet121</option>
       </select>
     </div>
 
     <button onclick="submitFlower()">🔍 Analyze Flower</button>
 
-    <div id="resultSection" class="result-section">
+    <div id="resultSection" class="result-section" hidden>
       <img id="flowerImage" src="" alt="" hidden />
       <p id="flowerDescription"></p>
       <div id="loadingText" hidden>
@@ -52,7 +53,7 @@
           <span></span>
         </div>
       </div>
-    </div>
+    </div>    
   </div>
   <script src="script.js"></script>
 </body>
