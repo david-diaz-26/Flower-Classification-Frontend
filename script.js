@@ -141,6 +141,7 @@ async function submitFlower() {
         }
       }
       flowerDescription.innerHTML = html || 'No description available.';
+      resultSection.hidden = false;  
       resultSection.classList.add('success-animation');
       console.log("Result HTML set.");
 
