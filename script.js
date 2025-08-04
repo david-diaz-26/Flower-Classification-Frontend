@@ -50,9 +50,11 @@ async function submitFlower() {
 
     // Clear previous results
     flowerDescription.innerHTML = "";
+    mapContainer.hidden = true;           // ⬅ Hide map
     flowerImage.hidden = true;
     resultSection.classList.remove('success-animation');
     loadingText.hidden = false;
+    flowerDescription.hidden = true;  // ⬅ Hide description
 
     // Debug: Print file input files
     console.log("fileInput.files:", fileInput.files);
@@ -143,7 +145,21 @@ async function submitFlower() {
       flowerDescription.innerHTML = html || 'No description available.';
       resultSection.classList.add('success-animation');
       console.log("Result HTML set.");
-
+      function slugify(text) {
+        return text.toLowerCase().replace(/[^a-z0-9_-]/g, '_');
+      }
+      
+      const mapContainer = document.getElementById('mapContainer');
+      const predictionName = data.prediction || '';
+      if (predictionName) {
+        const mapFileName = slugify(predictionName) + '_map.html';
+        const mapPath = `species_maps/${mapFileName}`;
+        mapContainer.innerHTML = `<iframe src="${mapPath}" style="width: 100%; height: 100%; border: none;"></iframe>`;
+        mapContainer.hidden = false;
+        flowerDescription.hidden = false; // Show fallback message
+      } else {
+        mapContainer.hidden = true;
+      }
     } catch (error) {
       console.error("Error in submitFlower:", error);
       flowerDescription.innerHTML = `
